@@ -1,0 +1,51 @@
+:root {
+	--color-primary: #ffffff;
+	--color-accent: #400eb1;
+
+	--fs-h1: #;
+	--fs-h2: #;
+	--fs-h3: #;
+	--fs-h4: #;
+	--fs-text: #;
+	--fs-text-large: #;
+	--fs-text-small: #;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+		sans-serif;
+}
+img {
+	max-width: 100%;
+}
+ul {
+	list-style-type: none;
+}
+a {
+	color: currentColor;
+	text-decoration: none;
+}
+.hidden {
+	display: none;
+}
+.uppercase {
+	text-transform: uppercase;
+}
+.underline {
+	text-decoration: underline;
+}
+.bg-primary {
+	background-color: var(--color-primary);
+	color: var(--color-accent);
+}
+.bg-accent {
+	background-color: var(--color-accent);
+	color: var(--color-primary);
+}
