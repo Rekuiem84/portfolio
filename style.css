@@ -4,6 +4,8 @@
 
 	--fs-xxl: clamp(2.4rem, 1.9946rem + 1.7297vw, 3.4rem);
 	--fs-l: clamp(1.75rem, 1.4966rem + 1.0811vw, 2.375rem);
+	--fs-ml: clamp(1.625rem, 1.3716rem + 1.0811vw, 2.125rem);
+	--fs-m: clamp(1.5rem, 1.2973rem + 0.8649vw, 2rem);
 	--fs-text: clamp(1.125rem, 0.973rem + 0.6486vw, 1.5rem);
 }
 
@@ -18,7 +20,16 @@ body {
 	font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
 		sans-serif;
 }
-img {
+body::-webkit-scrollbar {
+	display: none;
+}
+::selection {
+	color: var(--color-primary);
+	background-color: var(--color-accent);
+}
+
+img,
+svg {
 	max-width: 100%;
 }
 ul {
@@ -51,10 +62,13 @@ a {
 	background-color: var(--color-accent);
 	color: var(--color-primary);
 }
-.section-padding-l {
-	padding-inline: 9%;
+.section-padding-s {
+	padding-inline: 6%;
 }
 .section-padding-m {
+	padding-inline: 9%;
+}
+.section-padding-l {
 	padding-inline: 12%;
 }
 .cta-button {
@@ -66,6 +80,7 @@ a {
 }
 .section__title {
 	font-size: var(--fs-l);
+	font-weight: bold;
 }
 section p {
 	font-size: var(--fs-text);
@@ -155,7 +170,7 @@ section p {
 	position: relative;
 	isolation: isolate;
 	padding-block: 5.5rem;
-	margin-bottom: 6.5rem;
+	margin-bottom: 7rem;
 	background-color: initial;
 }
 .a-propos::before,
@@ -180,4 +195,126 @@ section p {
 .a-propos p {
 	margin-bottom: 1.35em;
 	line-height: 1.4;
+}
+/* Skills */
+.mes-skills {
+	margin-bottom: 8rem;
+}
+.mes-skills .section__title {
+	text-align: center;
+	margin-bottom: 1em;
+}
+.skills__board {
+	display: flex;
+	flex-wrap: wrap;
+	border: 4px solid var(--color-accent);
+	border-radius: 32px;
+	text-align: center;
+	box-shadow: -6px 6px 14px hsla(258, 85%, 40%, 30%);
+}
+.skills__cont {
+	padding: 1.4rem;
+	flex: 1 1 250px;
+}
+.skills__cont .img-cont {
+	width: min(75px, 60%);
+	margin-inline: auto;
+}
+.skills__title {
+	font-size: var(--fs-ml);
+	text-transform: capitalize;
+	text-decoration: underline;
+	font-weight: bold;
+}
+.skills__cont p,
+.skills__cont li {
+	font-size: var(--fs-text);
+}
+.skills__cont .skills__title + p {
+	margin-top: 0.6em;
+	line-height: 1.45;
+}
+.skills__cont li {
+	margin-top: 0.4em;
+	font-weight: 300;
+}
+.skills__list-title {
+	margin-top: 1.3em;
+}
+/* Projets */
+.projets .section-padding-l {
+	position: relative;
+	isolation: isolate;
+	padding-block: 5.5rem 4rem;
+	color: var(--color-primary);
+}
+.projets .section-padding-l {
+	margin-bottom: 3rem;
+}
+.projets .section-padding-l::after {
+	content: "";
+	background: var(--color-accent);
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	transform: skewY(4deg);
+}
+.projets .section-padding-l::after {
+	transform-origin: top left;
+}
+.projets .section__title {
+	font-size: var(--fs-l);
+	margin-bottom: 1.8em;
+}
+.projets .section-padding-l p {
+	margin-bottom: 1.35em;
+	line-height: 1.4;
+	text-wrap: balance;
+}
+.projets .cta-button {
+	font-weight: 500;
+}
+.projets .section-padding-s:nth-of-type(1) .projets__title {
+	margin-top: 4.5em;
+}
+.projets__title {
+	font-size: var(--fs-ml);
+	font-weight: bold;
+	text-decoration: underline;
+}
+.projets__desc {
+	font-size: var(--fs-m);
+	font-weight: 400;
+	margin-top: 0.85em;
+}
+.projets__desc ~ p {
+	font-size: var(--fs-text);
+	line-height: 1.45;
+}
+.projets__desc ~ p:first-of-type {
+	margin-top: 1em;
+}
+.projets__desc ~ p:last-of-type {
+	margin-bottom: 2.5em;
+}
+.projets__screens-cont {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 3rem 5rem;
+}
+.projets__screens-cont div {
+	flex: 1 1 480px;
+	display: flex;
+	justify-content: center;
+}
+.projets .separateur {
+	width: min(85%, 800px);
+	height: 5px;
+	background-color: var(--color-accent);
+	border-radius: 1rem;
+	margin-inline: auto;
+	font-size: var(--fs-ml);
+	margin-block: 3em;
 }
