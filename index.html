@@ -14,23 +14,23 @@
 
 <body>
   <nav class="nav-main">
-    <ul>
-      <li><span>N</span>Navigation</li>
-      <li><span>A</span>À propos</li>
-      <li><span>P</span>Projets</li>
-      <li><span>C</span>Contact</li>
+    <ul class="uppercase">
+      <li class="nav-main__link"><a href="#" class="nav-main__key">N</a>Navigation</li>
+      <li class="nav-main__link"><a href="#" class="nav-main__key">A</a>À propos</li>
+      <li class="nav-main__link"><a href="#" class="nav-main__key">P</a>Projets</li>
+      <li class="nav-main__link"><a href="#" class="nav-main__key">C</a>Contact</li>
     </ul>
   </nav>
   <main>
-    <section class="hero-section bg-primary">
+    <section class="hero-section bg-primary section-padding-l" id="hero-section">
       <div>
         <h1>Salut, je suis Joshua MORINI,<br>un vrai couteau suisse !</h1>
         <h2>Développeur Fullstack</h2>
-        <a href="#a-propos">Me découvrir</a>
+        <a href="#a-propos" class="cta-button bg-accent">Me découvrir</a>
       </div>
-      <div><img src="images/hero-img1-1.png" alt="personnage"></div>
+      <div class="hero-img-cont"><img src="images/hero-img.webp" alt="personnage"></div>
     </section>
-    <section class="a-propos bg-accent" id="a-propos">
+    <section class="a-propos bg-accent section-padding-l" id="a-propos">
       <h2>À propos de moi</h2>
       <p>Je suis Joshua MORINI, un Fullstack Developer passionné par la création d'expériences numériques innovantes.
       </p>
@@ -117,7 +117,7 @@
       </div>
     </section>
     <section class="projets" id="projets">
-      <div class="bg-accent">
+      <div class="bg-accent section-padding-l">
         <h2>Projets</h2>
         <p>Bienvenue dans mon temple, où chaque ligne de code a son importance, et chaque projet est une aventure à
           raconter. Ces
@@ -193,7 +193,7 @@
       </div>
     </section>
     <section class="experience" id="experience">
-      <div class="bg-accent">
+      <div class="bg-accent section-padding-l">
         <h2>Expérience</h2>
         <p>Bienvenue dans l'archive de mon parcours professionnel, une série d'expériences qui ont sculpté ma
           trajectoire dans le
@@ -345,7 +345,7 @@
         </div>
       </section>
     </section>
-    <section class="contact bg-accent" id="contact">
+    <section class="contact bg-accent section-padding-l" id="contact">
       <h2>Vous avez un projet ?<br> Contactez-moi pour qu’on le réalise ensemble !</h2>
       <form method="get">
         <label for="name">Nom</label>
