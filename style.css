@@ -88,8 +88,6 @@ section p {
 }
 /*  */
 .nav-main {
-	display: none;
-
 	position: fixed;
 	left: 50%;
 	translate: -50% 0;
@@ -126,10 +124,13 @@ section p {
 	aspect-ratio: 1;
 	border-radius: 12px;
 	cursor: pointer;
-}
-.nav-main__key:hover {
-	background-color: var(--color-accent);
-	color: var(--color-primary);
+	transition: 0.2s ease-in-out;
+
+	&:hover {
+		background-color: var(--color-accent);
+		color: var(--color-primary);
+		scale: 0.9;
+	}
 }
 /* Hero */
 .hero-section {
@@ -483,4 +484,91 @@ section p {
 .timeline__cell .timeline__text h2 ~ p {
 	margin-top: 1em;
 	font-size: var(--fs-text);
+}
+/* Contact */
+.contact {
+	padding-block: 5rem 10rem;
+}
+.contact form {
+	background-color: var(--color-primary);
+	color: var(--color-accent);
+	border-radius: 1.8rem;
+	width: min(100%, 35ch);
+	display: flex;
+	flex-direction: column;
+	margin-inline: auto;
+	font-size: var(--fs-m);
+	font-weight: 500;
+	margin-top: 2em;
+	padding: 1.5em;
+}
+.contact form :is(input, textarea) {
+	width: 100%;
+	border-radius: 24px;
+	font-size: var(--fs-text);
+	background-color: hsla(258, 85%, 37%, 20%);
+	color: var(--color-accent);
+	border: none;
+	padding: 0.35em;
+	padding-left: 2.75em;
+
+	&::placeholder {
+		color: hsla(258, 85%, 37%, 60%);
+		font-weight: 600;
+	}
+
+	&:focus {
+		outline: 2px solid var(--color-accent);
+	}
+}
+.contact form label {
+	cursor: pointer;
+}
+.contact form label:nth-of-type(n + 2) {
+	margin-top: 1em;
+}
+.contact form label + div {
+	margin-top: 0.3em;
+	position: relative;
+
+	&::before {
+		object-fit: cover;
+		object-position: center;
+		position: absolute;
+		top: 50%;
+		left: 0.5em;
+		translate: 0 -50%;
+		height: 1em;
+		aspect-ratio: 1;
+		pointer-events: none;
+	}
+
+	&:first-of-type::before {
+		content: url(images/icon-profil.svg);
+	}
+	&:nth-of-type(2)::before {
+		content: url(images/icon-mail.svg);
+	}
+	&:nth-of-type(3)::before {
+		content: url(images/icon-bubble.svg);
+		top: 0.7em;
+	}
+}
+.contact form textarea {
+	resize: vertical;
+}
+.contact button {
+	margin-top: 1.2em;
+	width: fit-content;
+	margin-inline: auto;
+	border: none;
+	font-size: var(--fs-text);
+	outline: 3px solid transparent;
+	transition: 0.2s;
+
+	&:is(:hover, :focus) {
+		scale: 1.1;
+		outline: 3px solid var(--color-primary);
+		outline-offset: -6px;
+	}
 }

@@ -296,7 +296,7 @@
           <div class="timeline__text">
             <h2>Bachelor 1 - Web & Multimédias</h2>
             <p>J'ai découvert le marketing, le design graphique et les cours d'intégration web, me rendant très
-              versatile et polyvalent</p>
+              versatile et polyvalent.</p>
             <p>Cette année, j'ai appris le Javascript et je me suis beaucoup investi en solo pour maîtriser les concepts
               les plus utiles en développement web.</p>
           </div>
@@ -340,15 +340,16 @@
       </section>
     </section>
     <section class="contact bg-accent section-padding-m" id="contact">
-      <h2>Vous avez un projet ?<br> Contactez-moi pour qu’on le réalise ensemble !</h2>
-      <form method="get">
-        <label for="name">Nom</label>
-        <input type="text" name="name" placeholder="Votre nom">
-        <label for="email">Email</label>
-        <input type="text" name="email" placeholder="Votre email">
-        <label for="message">Message</label>
-        <textarea name="message" rows="10" placeholder="Votre message"></textarea>
-        <button type="submit">Envoyer</button>
+      <h2 class="section__title">Vous avez un projet ?<br> Contactez-moi pour qu’on le réalise ensemble !</h2>
+      <form>
+        <label for="contact-name">Nom</label>
+        <div><input id="contact-name" type="text" name="name" placeholder="Votre nom"></div>
+        <label for="contact-email">Email</label>
+        <div><input id="contact-email" type="text" name="email" placeholder="Votre email"></div>
+        <label for="contact-message">Message</label>
+        <div><textarea id="contact-message" name="message" rows="6" placeholder="Expliquez-moi votre projet"></textarea>
+        </div>
+        <button class="cta-button bg-accent" type="button">Envoyer</button>
       </form>
     </section>
   </main>
