@@ -1,5 +1,4 @@
-/* Mandatory (M) for timeline 1 */
-.timeline1 {
+.timeline {
 	--color-accent: #400eb1;
 	--color-background: #ffffff;
 	--color-date-content: #ffffff;
@@ -7,21 +6,14 @@
 	--color-text-content: var(--color-date-content);
 	/*  */
 	--horizontal-spacing: 5rem;
-	--horizontal-line-height: 16px;
+	--horizontal-line-height: 2rem;
 	--vertical-spacing: 3rem;
-	--vertical-line-width: 32px;
-	--date-bubble-size: 140px;
-	/* If --max-text-width is not set, --max-timeline-width will be 100% */
-	/* --max-text-width: 120px; */
-	--max-timeline-width: calc(
-		var(--date-bubble-size) + var(--horizontal-spacing) + var(--max-text-width)
-	);
+	--vertical-line-width: 2rem;
+	--date-bubble-size: 150px;
 	container-type: inline-size;
 	background-color: var(--color-background);
 }
-/* (M) Template for the cell */
-.timeline1 .timeline__cell {
-	/* Set --max-timeline-width here for an absolute max size */
+.timeline .timeline__cell {
 	--max-timeline-width: 1920px;
 	width: 100%;
 	max-width: var(--max-timeline-width, 100%);
@@ -34,7 +26,6 @@
 		"link     .          .";
 	isolation: isolate;
 }
-/* (M) The 5 main parts of the timeline */
 .timeline__cell .timeline__date,
 .timeline__cell .timeline__date--empty {
 	grid-area: date;
@@ -80,8 +71,6 @@
 	justify-self: center;
 	position: relative;
 }
-/* (M) Connecting the date bubble to the adjacent part or vice versa */
-/* (M) ::before are horizontal lines and ::after are vertical lines  */
 @container (width > 550px) {
 	.timeline__cell .timeline__date::before,
 	.timeline__cell:not(:last-of-type) .timeline__date::after,
@@ -120,20 +109,18 @@
 		top: 50%;
 	}
 }
-/* (M) Hide the two vertical lines of the last row  */
 .timeline__cell:last-of-type :is(.timeline__vertical, .timeline__link) {
 	display: none;
 }
-/* (M) Making the timeline responsive */
 @container (width <= 550px) {
-	.timeline1 .timeline__cell {
+	.timeline .timeline__cell {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		--vertical-line-width: 1.25rem;
+		--vertical-line-width: 2.5rem;
 	}
 	.timeline__cell .timeline__horizontal {
-		--vertical-spacing: 2rem;
+		--vertical-spacing: 2.5rem;
 		height: var(--vertical-spacing);
 		width: var(--vertical-line-width);
 	}
@@ -144,7 +131,7 @@
 		display: none;
 	}
 	.timeline__cell .timeline__link {
-		--vertical-spacing: 4rem;
+		--vertical-spacing: 5rem;
 		height: var(--vertical-spacing);
 	}
 	/*  */
@@ -165,30 +152,4 @@
 		height: calc(var(--date-bubble-size) / 2);
 		top: 50%;
 	}
-}
-/* Styling (S) for timeline 1 */
-.timeline1 {
-	justify-items: center;
-}
-.timeline1 .bg-accent {
-	background-color: var(--color-accent);
-}
-.timeline__cell .timeline__date {
-	border-radius: 50%;
-	font-size: 2.5rem;
-	padding: 1rem;
-}
-.timeline__cell .timeline__text {
-	border-radius: 0.8rem;
-	box-shadow: -6px 6px 10px rgba(100, 100, 100, 0.3);
-	font-size: 1.2rem;
-	padding: 1rem;
-	transition: scale 0.2s ease-in-out;
-
-	&:hover {
-		scale: 1.05;
-	}
-}
-.timeline__cell .timeline__text h2 + p {
-	margin-top: 1em;
 }

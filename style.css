@@ -3,6 +3,7 @@
 	--color-accent: #400eb1;
 
 	--fs-xxl: clamp(2.4rem, 1.9946rem + 1.7297vw, 3.4rem);
+	--fs-xl: clamp(2rem, 1.5541rem + 1.9027vw, 2.8rem);
 	--fs-l: clamp(1.75rem, 1.4966rem + 1.0811vw, 2.375rem);
 	--fs-ml: clamp(1.625rem, 1.3716rem + 1.0811vw, 2.125rem);
 	--fs-m: clamp(1.5rem, 1.2973rem + 0.8649vw, 2rem);
@@ -450,4 +451,36 @@ section p {
 }
 .experience__grid p:nth-child(n + 2) {
 	margin-top: 0.5em;
+}
+/* Éducation, style de la timeline dans style-timeline.css */
+.education {
+	margin-block: 5.5rem;
+}
+.timeline {
+	justify-items: center;
+	padding-top: 3rem;
+}
+.timeline__cell .timeline__date {
+	border-radius: var(--date-bubble-size);
+	font-size: var(--fs-l);
+	font-weight: bold;
+	padding: 0.5em;
+}
+.timeline__cell .timeline__text {
+	border-radius: 12px;
+	box-shadow: -6px 6px 14px hsla(258, 85%, 40%, 30%);
+	padding: 1.2rem;
+	transition: scale 0.3s ease-in-out;
+
+	&:hover {
+		scale: 1.02;
+	}
+}
+.timeline__cell .timeline__text h2 {
+	text-transform: capitalize;
+	font-size: var(--fs-m);
+}
+.timeline__cell .timeline__text h2 ~ p {
+	margin-top: 1em;
+	font-size: var(--fs-text);
 }
