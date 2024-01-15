@@ -9,7 +9,7 @@
   <link rel='stylesheet' href='style.css' />
   <link rel="stylesheet" href="style-timeline.css">
   <link rel='shortcut icon' type='image/png' href='images/logo-jm.svg' />
-  <!-- <script src='' defer></script> -->
+  <script src='script.js' defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -20,16 +20,30 @@
 <body>
   <nav class="nav-main">
     <ul class="uppercase">
-      <li class="nav-main__link"><a href="#" class="nav-main__key">N</a>Navigation</li>
-      <li class="nav-main__link"><a href="#" class="nav-main__key">A</a>À propos</li>
-      <li class="nav-main__link"><a href="#" class="nav-main__key">P</a>Projets</li>
-      <li class="nav-main__link"><a href="#" class="nav-main__key">C</a>Contact</li>
+      <li class="nav-main__link"><a href="#" class="nav-main__key" data-key="n">N</a>Navigation</li>
+      <li class="nav-main__link"><a href="#a-propos" class="nav-main__key" data-key="a">A</a>À&nbsp;propos</li>
+      <li class="nav-main__link"><a href="#projets" class="nav-main__key" data-key="p">P</a>Projets</li>
+      <li class="nav-main__link"><a href="#contact" class="nav-main__key" data-key="c">C</a>Contact</li>
+    </ul>
+  </nav>
+  <div class="burger-cont">
+    <div class="burger--line"></div>
+  </div>
+  <nav class="nav-sec">
+    <ul>
+      <li><a href="#accueil" class="nav-sec__link" data-text="Accueil"></a></li>
+      <li><a href="#a-propos" class="nav-sec__link" data-text="À&nbsp;propos"></a></li>
+      <li><a href="#mes-skills" class="nav-sec__link" data-text="Mes&nbsp;skills"></a></li>
+      <li><a href="#projets" class="nav-sec__link" data-text="Projets"></a></li>
+      <li><a href="#experience" class="nav-sec__link" data-text="Expérience"></a></li>
+      <li><a href="#education" class="nav-sec__link" data-text="Éducation"></a></li>
+      <li><a href="#contact" class="nav-sec__link" data-text="Contact"></a></li>
     </ul>
   </nav>
   <main>
-    <section class="hero-section bg-primary section-padding-m" id="hero-section">
+    <section class="hero-section bg-primary section-padding-m" id="accueil">
       <div>
-        <h1>Salut, je suis Joshua MORINI,<br>un vrai couteau suisse !</h1>
+        <h1>Salut, je suis Joshua MORINI,<br>un vrai couteau suisse!</h1>
         <h2>Développeur Fullstack</h2>
         <a href="#a-propos" class="cta-button bg-accent">Me découvrir</a>
       </div>
@@ -122,11 +136,11 @@
           personnelles, voici un aperçu de ce que j'ai façonné pour le vaste monde numérique. Ces projets sont bien plus
           que des lignes de code et des pixels agencés; ce sont des pièces de puzzle qui révèlent mon parcours, mes
           défis relevés, et mes moments d'éclat.</p>
-        <a href="#" class="cta-button bg-primary">Voir mes projets</a>
+        <a href="#projet" class="cta-button bg-primary">Voir mes projets</a>
       </div>
       <div class="bg-primary">
-        <article class="section-padding-s">
-          <h3 class="projets__title"><a href="">ChocoLift</a></h3>
+        <article class="section-padding-s" id="projet">
+          <h3 class="projets__title"><a href="https://rekuiem84.github.io/chocolift/">ChocoLift</a></h3>
           <h4 class="projets__desc">Barre protéinée à saveur de kinder bueno</h4>
           <p>Réalisé à l'occasion de mes deuxième partiels de première année (avril 2023).</p>
           <p>Idéation, conception, maquette et intégration réalisés en 5 jours par les 3 membres de mon équipe et moi.
@@ -137,13 +151,32 @@
             imparti. C’était la première fois que je devais réaliser un site web centré sur le design plutôt que sur le
             contenu.</p>
           <div class="projets__screens-cont">
-            <div><a href=""><img src="images/chocolift-1.webp" alt="projet chocolift page d'accueil"></a></div>
-            <div><a href=""><img src="images/chocolift-2.webp" alt="projet chocolift page d'accueil"></a></div>
+            <div><a href="https://rekuiem84.github.io/chocolift/"><img src="images/chocolift-1.webp"
+                  alt="projet chocolift page d'accueil"></a></div>
+            <div><a href="https://rekuiem84.github.io/chocolift/galerie.html"><img src="images/chocolift-2.webp"
+                  alt="projet chocolift page versus"></a></div>
           </div>
           <div class="separateur"></div>
         </article>
         <article class="section-padding-s">
-          <h3 class="projets__title"><a href="">Pokédex</a></h3>
+          <h3 class="projets__title"><a href="https://rekuiem84.github.io/loris-prepa/">Loris Prépa</a></h3>
+          <h4 class="projets__desc">Préparateur physique pour professionnel</h4>
+          <p>Réalisé à l'occasion de mes premiers partiels de deuxième année (décembre 2023).</p>
+          <p>Idéation, conception, maquette et intégration réalisés en 4 jours par les 4 membres de mon équipe et moi.
+          </p>
+          <p>J’ai participé à la création de la maquette et je me suis occupé du développement du site web.</p>
+          <p>L'intégration de la maquette comportait de nombreux défis techniques que j'ai sû surmonter. Tout a été
+            réalisé sans retour client.</p>
+          <div class="projets__screens-cont">
+            <div><a href="https://rekuiem84.github.io/loris-prepa/"><img src="images/loris-prepa-1.png"
+                  alt="projet loris page d'accueil"></a></div>
+            <div><a href="https://rekuiem84.github.io/loris-prepa/histoire.html"><img src="images/loris-prepa-2.png"
+                  alt="projet loris page histoire"></a></div>
+          </div>
+          <div class="separateur"></div>
+        </article>
+        <article class="section-padding-s">
+          <h3 class="projets__title"><a href="https://rekuiem84.github.io/pokedex/">Pokédex</a></h3>
           <h4 class="projets__desc">Le pokédex avec tous les pokémons</h4>
           <p>Ce projet est de loin le plus ambitieux de tous ceux que j’ai pu réaliser.</p>
           <p>Le pokédex répertorie tous les pokémons existants dans une liste triée par un numéro propre à chaque
@@ -154,13 +187,15 @@
             librairie d’informations pour en arriver à ce résultat. Et j’ai même rendu le site utilisable sur les
             téléphones portables, ce qui n’a pas été une mince affaire vu le nombre d’éléments à afficher…</p>
           <div class="projets__screens-cont">
-            <div><a href=""><img src="images/pokedex-1.webp" alt="projet pokedex page d'accueil"></a></div>
-            <div><a href=""><img src="images/pokedex-2.webp" alt="projet pokedex page d'accueil"></a></div>
+            <div><a href="https://rekuiem84.github.io/pokedex/"><img src="images/pokedex-1.webp"
+                  alt="projet pokedex page d'accueil"></a></div>
+            <div><a href="https://rekuiem84.github.io/pokedex/"><img src="images/pokedex-2.webp"
+                  alt="projet pokedex page d'accueil"></a></div>
           </div>
           <div class="separateur"></div>
         </article>
         <article class="section-padding-s">
-          <h3 class="projets__title"><a href="">CarePills</a></h3>
+          <h3 class="projets__title"><a href="https://rekuiem84.github.io/carepills/">CarePills</a></h3>
           <h4 class="projets__desc">Dentifrice en forme de pilule</h4>
           <p>Réalisé à l'occasion de mes premiers partiels de première année (décembre 2022).</p>
           <p>Idéation, conception, maquette et intégration réalisés en 5 jours par les 3 membres de mon équipe et moi.
@@ -173,8 +208,10 @@
           <p>J’ai aussi eu le temps de faire le responsive du site, et à implémenter un choix des goûts
             grâce à mes premiers cours de Javascript.</p>
           <div class="projets__screens-cont">
-            <div><a href=""><img src="images/carepills-1.webp" alt="projet chocolift page d'accueil"></a></div>
-            <div><a href=""><img src="images/carepills-2.webp" alt="projet chocolift page d'accueil"></a></div>
+            <div><a href="https://rekuiem84.github.io/carepills/"><img src="images/carepills-1.webp"
+                  alt="projet chocolift page d'accueil"></a></div>
+            <div><a href="https://rekuiem84.github.io/carepills/"><img src="images/carepills-2.webp"
+                  alt="projet chocolift page d'accueil"></a></div>
           </div>
         </article>
       </div>
@@ -277,7 +314,7 @@
           <p class="timeline__date bg-accent">2023</p>
           <div class="timeline__horizontal bg-accent"></div>
           <div class="timeline__text">
-            <h2>Bachelor 2 - Web & Multimédias — option développement web</h2>
+            <h2>Bachelor 2 - Web & Multimédia — option développement web</h2>
             <p>C'est en deuxième année, au second semestre que je me suis spécialisé dans le développement web, pour me
               concentrer sur le développement front avec React mais aussi surtout sur le développement back avec PHP.
             </p>
@@ -294,7 +331,7 @@
           <p class="timeline__date bg-accent">2022</p>
           <div class="timeline__horizontal bg-accent"></div>
           <div class="timeline__text">
-            <h2>Bachelor 1 - Web & Multimédias</h2>
+            <h2>Bachelor 1 - Web & Multimédia</h2>
             <p>J'ai découvert le marketing, le design graphique et les cours d'intégration web, me rendant très
               versatile et polyvalent.</p>
             <p>Cette année, j'ai appris le Javascript et je me suis beaucoup investi en solo pour maîtriser les concepts
