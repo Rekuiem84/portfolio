@@ -19,6 +19,7 @@
 }
 html {
 	scroll-behavior: smooth;
+	color-scheme: light;
 }
 body {
 	font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
@@ -166,6 +167,13 @@ section p {
 .hero-section h1 {
 	font-size: var(--fs-xxl);
 	line-height: 1.2em;
+
+	& .title--impact {
+		font-size: 1.55em;
+	}
+	&::first-line {
+		font-size: 1.2em;
+	}
 }
 .hero-section h2 {
 	font-size: 1.8rem;
@@ -182,7 +190,7 @@ section p {
 }
 .hero-img-cont {
 	max-width: 850px;
-	width: 100%;
+	width: clamp(min(515px, 100%), 60%, 850px);
 	position: absolute;
 	top: -15%;
 	bottom: 0;
@@ -192,6 +200,16 @@ section p {
 	display: flex;
 	align-items: center;
 }
+@media (width < 760px) {
+	.hero-section {
+		padding-top: 15vh;
+		padding-top: 15dvh;
+	}
+	.hero-img-cont {
+		position: relative;
+	}
+}
+
 /* À propos */
 .a-propos {
 	position: relative;
@@ -557,7 +575,7 @@ section p {
 
 /* Éducation, style de la timeline dans style-timeline.css */
 .education {
-	margin-block: 5.5rem;
+	padding-block: 5.5rem;
 }
 .timeline {
 	justify-items: center;
@@ -674,9 +692,15 @@ section p {
 		text-decoration: none;
 	}
 }
+@media (width < 650px) {
+	.contact {
+		padding-block: 5rem;
+	}
+}
 @media (width < 600px) {
 	.contact form {
 		border-radius: 1.2rem;
+		padding: 0.8em;
 	}
 	.contact form :is(input, textarea) {
 		border-radius: 1rem;
