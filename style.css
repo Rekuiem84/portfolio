@@ -572,7 +572,11 @@ section p {
 		display: none;
 	}
 }
-
+@media (width > 1250px) {
+	.experience:last-child {
+		padding-block: 5rem;
+	}
+}
 /* Éducation, style de la timeline dans style-timeline.css */
 .education {
 	padding-block: 5.5rem;
