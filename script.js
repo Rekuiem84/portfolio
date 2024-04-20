@@ -37,9 +37,12 @@ navSecLink.forEach((link) => {
 const navMain = document.querySelector(".nav-main");
 const navMainKey = document.querySelectorAll(".nav-main__key");
 
+let isKeyBeingPressed = false;
+
 window.addEventListener("keydown", (e) => {
 	// checks if anything is focused (an input or a button)
-	if (document.activeElement === document.body) {
+	if (!document.activeElement.closest("form") && !isKeyBeingPressed) {
+		isKeyBeingPressed = true;
 		navMainKey.forEach((key) => {
 			if (key.getAttribute("data-key") === e.key) {
 				key.classList.add("active");
@@ -53,6 +56,10 @@ window.addEventListener("keydown", (e) => {
 			toggleNavSec();
 		}
 	}
+});
+
+window.addEventListener("keyup", (e) => {
+	isKeyBeingPressed = false;
 });
 
 // enables and disables the nav menu when the N key is pressed
