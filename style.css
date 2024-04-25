@@ -7,6 +7,7 @@
   --fs-l: clamp(1.75rem, 1.4966rem + 1.0811vw, 2.375rem);
   --fs-ml: clamp(1.625rem, 1.3716rem + 1.0811vw, 2.125rem);
   --fs-m: clamp(1.5rem, 1.2973rem + 0.8649vw, 2rem);
+  --fs-s: clamp(1.3rem, 1.1176rem + 0.7784vw, 1.75rem);
   --fs-text: clamp(1.125rem, 0.973rem + 0.6486vw, 1.5rem);
 }
 
@@ -141,8 +142,8 @@ section p {
   left: 50%;
   translate: -50% 0;
   z-index: 99;
-  bottom: 2.5%;
-  width: 85%;
+  bottom: 1.5%;
+  width: min(77.5%, 1200px);
 }
 
 .nav-main ul {
@@ -153,14 +154,14 @@ section p {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(6px);
-  font-size: var(--fs-m);
+  font-size: var(--fs-s);
   color: var(--color-accent);
   font-weight: bold;
-  padding: 0.4em 1.2em;
+  padding: 0.25em 0.35em;
   gap: 1.5rem;
 }
 
-.nav-main__link {
+.nav-main__link > a {
   display: flex;
   align-items: center;
   gap: 0.4em;
@@ -225,7 +226,7 @@ section p {
   max-width: 850px;
   width: clamp(min(515px, 100%), 60%, 850px);
   position: absolute;
-  top: -15%;
+  top: -10%;
   bottom: 0;
   right: 0;
   z-index: -1;
@@ -747,7 +748,6 @@ section p {
   align-items: center;
   color: currentColor;
   width: 100%;
-  text-decoration: none;
   padding: 0.75em 1em;
   background-color: rgba(250, 250, 250, 0.3333333333);
   border-radius: 0.5em;
@@ -758,29 +758,6 @@ section p {
 .contact-links .socials .social-cont .social::selection {
   background: var(--color-primary);
   color: var(--color-accent);
-}
-@media (min-width: 800px) {
-  .contact-links .socials .social-cont .social::before {
-    content: attr(data-text);
-    color: black;
-    position: absolute;
-    font-weight: 700;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    font-size: 12rem;
-    line-height: 1em;
-    text-align: center;
-    scale: 0;
-    opacity: 0;
-    z-index: -1;
-    transition: scale 0s ease, opacity 0.5s ease-in-out;
-    pointer-events: none;
-  }
-}
-.contact-links .socials .social-cont .social:is(:hover, :focus-visible)::before {
-  scale: 1;
-  opacity: 0.6;
 }
 .contact-links .socials .social-cont:focus-visible {
   outline-color: var(--color-primary);
