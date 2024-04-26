@@ -48,7 +48,7 @@ window.addEventListener("keydown", (e) => {
 				key.classList.add("active");
 				// redirects to the link if the key pressed is not N
 				if (key.getAttribute("data-key") != "n") {
-					window.location.href = key.getAttribute("href");
+					window.location.href = key.getAttribute("data-href");
 				}
 			}
 		});
