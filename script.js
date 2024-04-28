@@ -58,7 +58,7 @@ window.addEventListener("keydown", (e) => {
 	}
 });
 
-window.addEventListener("keyup", (e) => {
+window.addEventListener("keyup", () => {
 	isKeyBeingPressed = false;
 });
 
