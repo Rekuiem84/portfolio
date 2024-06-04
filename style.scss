@@ -300,6 +300,21 @@ section p {
 		margin-top: 1.3em;
 	}
 }
+.mes-skills .note {
+	margin-top: 3rem;
+
+	h3 {
+		font-size: var(--fs-m);
+	}
+	li {
+		font-size: var(--fs-text);
+		margin-top: 0.5em;
+
+		&::before {
+			content: "- ";
+		}
+	}
+}
 @media (width < 992px) {
 	.skills__board {
 		max-width: 600px;
