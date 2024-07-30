@@ -336,6 +336,9 @@ section p {
 .mes-skills .note li::before {
   content: "- ";
 }
+.mes-skills .note li:first-child {
+  margin-top: 1em;
+}
 
 @media (width < 992px) {
   .skills__board {
@@ -826,14 +829,16 @@ section p {
   gap: 8px;
   cursor: pointer;
   z-index: 99;
+  background: none;
+  border: none;
 }
 
 .burger--line {
+  position: relative;
   height: 5px;
   width: 100%;
   background-color: var(--color-primary);
   border-radius: 50px;
-  position: relative;
   transition: 0.5s, background-color 0.25s;
   outline: 2.5px solid var(--color-accent);
 }
@@ -848,6 +853,7 @@ section p {
   border-radius: inherit;
   background-color: var(--color-primary);
   transition: 0.3s;
+  left: 0;
 }
 
 .burger--line::before {
