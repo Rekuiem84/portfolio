@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+
+interface ExperienceSection {
+	title?: string;
+	content?: string[];
+	accent?: boolean;
+	customClass?: string;
+	image?: {
+		src: ImageMetadata;
+		alt: string;
+	};
+}
+
+interface ExperienceIcon {
+	name: string;
+	src: ImageMetadata;
+	alt: string;
+}
+
+interface Props {
+	title: string;
+	date: string;
+	icons: ExperienceIcon[];
+	layoutClass: string;
+	sections: ExperienceSection[];
+}
+
+const { title, date, icons, layoutClass, sections } = Astro.props;
+---
+
+<article>
+	<div class="experience__header">
+		<div>
+			<h3 class="subtitle" tabindex="0">
+				{title}
+			</h3>
+
+			<p>{date}</p>
+		</div>
+
+		<div class="icons-cont">
+			{
+				icons.map((icon) => (
+					<div data-name={icon.name}>
+						<Image src={icon.src} alt={icon.alt} />
+					</div>
+				))
+			}
+		</div>
+	</div>
+
+	<div class:list={["experience__grid", layoutClass]}>
+		{
+			sections.map((section) => {
+				if (section.image) {
+					return (
+						<div class={section.customClass}>
+							<Image
+								src={section.image.src}
+								alt={section.image.alt}
+								loading="lazy"
+							/>
+						</div>
+					);
+				}
+
+				return (
+					<div class:list={[section.accent && "bg-accent"]}>
+						<h4>{section.title}</h4>
+
+						{section.content?.map((paragraph) => (
+							<p>{paragraph}</p>
+						))}
+					</div>
+				);
+			})
+		}
+	</div>
+</article>

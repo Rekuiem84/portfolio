@@ -1,0 +1,88 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import { projects } from "../data/projects";
+---
+
+<section class="projets" id="projets">
+	<div class="section-padding-l bandeau--hb">
+		<h2 class="section__title uppercase" tabindex="0">Projets</h2>
+
+		<p>
+			Bienvenue dans mon temple, où chaque ligne de code a son importance, et
+			chaque projet est une aventure à raconter. Ces projets représentent mon
+			parcours, mes défis techniques et ma passion pour le développement et le
+			design.
+		</p>
+
+		<a href="#projet" class="cta-button bg-primary"> Voir mes projets </a>
+	</div>
+
+	<div class="bg-primary">
+		<article id="projet">
+			{projects.map((project) => <ProjectCard {...project} />)}
+		</article>
+	</div>
+</section>
+
+<style>
+	.projets {
+		& .bandeau--hb {
+			position: relative;
+			isolation: isolate;
+			padding-block: 5.5rem 4rem;
+			margin-bottom: 3rem;
+			color: var(--color-primary);
+
+			&::after {
+				content: "";
+				background: var(--color-accent);
+				position: absolute;
+				inset: 0;
+				z-index: -1;
+				transform: skewY(4deg);
+				transform-origin: top left;
+			}
+			& p {
+				margin-bottom: 1.35em;
+				line-height: 1.4;
+				text-wrap: balance;
+			}
+		}
+		& .section__title {
+			font-size: var(--fs-l);
+			margin-bottom: 1.8em;
+		}
+		& .cta-button {
+			&:is(:hover, :focus) {
+				scale: 1.1;
+				outline: 3px solid var(--color-primary);
+				outline-offset: -6px;
+			}
+		}
+
+		& .cta-button {
+			font-weight: 500;
+			margin-top: 1.2em;
+			width: fit-content;
+			margin-inline: auto;
+			border: none;
+			outline: 3px solid transparent;
+			transition: 0.2s;
+
+			&:is(:hover, :focus) {
+				scale: 1.1;
+				outline: 3px solid var(--color-primary);
+				outline-offset: -6px;
+			}
+		}
+		& .section-padding-s:nth-of-type(1) {
+			font-size: var(--fs-ml);
+			margin-top: 2em;
+			border: 1px solid transparent;
+
+			& > .projets__title {
+				margin-top: 2.5em;
+			}
+		}
+	}
+</style>

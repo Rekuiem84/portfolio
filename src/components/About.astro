@@ -1,0 +1,85 @@
+<section class="a-propos bg-accent section-padding-l" id="a-propos">
+	<h2 class="section__title uppercase" tabindex="0">À propos de moi</h2>
+	<p>
+		Je suis <span class="bold">Joshua MORINI</span>, un Développeur fullstack
+		passionné par la création d'expériences numériques innovantes avec du code.
+	</p>
+	<p>
+		Au cœur de mon approche, je trouve mon inspiration dans le mariage entre le
+		développement et le design, cherchant constamment à repousser les limites de
+		la créativité et de l'inventivité du design ainsi que la complexité et la
+		rigueur nécessaire au développement. En gros, j’adore travailler en solo ou
+		en groupe pour transformer des maquettes en vrais sites web utilisables.
+	</p>
+	<p>
+		Je suis convaincu que chaque projet, petit ou grand, peut bénéficier d'une
+		combinaison équilibrée de compétences techniques et artistiques. En tant que
+		développeur fullstack, je maîtrise les langages tels que HTML, CSS,
+		JavaScript, PHP et SQL. Mon utilisation efficace de Git et de Github
+		garantit une gestion de code fluide et collaborative tout au long des
+		projets auxquels je participe.
+	</p>
+	<p>
+		Au-delà de l'écran, je suis un passionné de mangas, toujours prêt à
+		découvrir de nouvelles œuvres captivantes à suivre au fil des semaines. Ma
+		plus grande passion, cependant, réside dans l'exploration de nouveaux
+		paysages à travers des voyages autour du monde. Pour moi, <span
+			class="italic"
+			>chaque destination est une source d'inspiration et un lieu de
+			ressourcement unique</span
+		>.
+	</p>
+	<p>
+		En plus de mon expertise technique, je mets en avant ma <span class="italic"
+			>maîtrise bilingue de l'anglais</span
+		>, permettant une communication fluide à international. Cette compétence
+		linguistique renforce ma capacité à collaborer avec des équipes diversifiées
+		et à comprendre les besoins des clients à l'échelle mondiale. Mon aisance à
+		la fois en français et en anglais facilite une collaboration fluide et une
+		compréhension approfondie des subtilités culturelles dans le monde
+		professionnel, ouvrant la voie à des interactions efficaces enrichissantes.
+		J'adore apprendre de nouvelles langues, c'est pourquoi en plus du français
+		et de l'anglais, j'ai des notions et une certaine maîtrise du japonais, du
+		chinois (mandarin) et du norvégien (bokmål).
+	</p>
+	<p>
+		Bienvenue dans mon univers numérique, où passion et expertise se mêlent pour
+		donner vie à des expériences exceptionnelles. Que ce soit à travers le code
+		qui prend forme sur l'écran ou au milieu de paysages magnifiques, chaque
+		moment est, pour moi, une opportunité d'exploration.
+	</p>
+</section>
+
+<style>
+	.a-propos {
+		position: relative;
+		isolation: isolate;
+		padding-block: 5.5rem;
+		margin-bottom: 7rem;
+		background-color: initial;
+
+		&::before,
+		&::after {
+			content: "";
+			background: var(--color-accent);
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			transform: skewY(-4deg);
+		}
+		&::before {
+			transform-origin: top left;
+		}
+		&::after {
+			transform-origin: bottom center;
+		}
+		& .section__title {
+			font-size: var(--fs-l);
+			margin-bottom: 1.8em;
+		}
+		& p {
+			margin-bottom: 1.35em;
+			line-height: 1.4;
+		}
+	}
+</style>

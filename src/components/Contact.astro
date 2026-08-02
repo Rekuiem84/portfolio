@@ -1,0 +1,29 @@
+---
+import ContactLink from "./ContactLink.astro";
+
+const email = "joshuamorinipro@gmail.com";
+const links = [
+	{
+		href: "https://github.com/Rekuiem84",
+		icon: "fa-brands fa-github",
+		label: "Rekuiem84",
+	},
+	{
+		href: `mailto:${email}`,
+		icon: "fa-solid fa-envelope",
+		label: email,
+	},
+	{
+		href: "https://www.linkedin.com/in/joshuamorini/",
+		icon: "fa-brands fa-linkedin",
+		label: "joshuamorini",
+	},
+];
+---
+
+<section class="contact-links bg-accent section-padding-l" id="contact-links">
+	<ul class="socials">
+		{links.map((link) => <ContactLink {...link} />)}
+	</ul>
+</section>
+<div class="purple-space"></div>

@@ -1,0 +1,77 @@
+---
+import heroImg from "@/assets/hero-img.webp";
+import Image from "astro/components/Image.astro";
+---
+
+<section class="hero-section bg-primary section-padding-m" id="accueil">
+	<div class="content-cont">
+		<h1>Je suis Joshua MORINI,<br />un vrai couteau suisse!</h1>
+		<h2>Développeur Fullstack</h2>
+		<a href="#a-propos" class="cta-button bg-accent">Me découvrir</a>
+	</div>
+	<div class="hero-img-cont">
+		<Image src={heroImg} alt="personnage me représentant" />
+	</div>
+</section>
+
+<style>
+	.hero-section {
+		position: relative;
+		min-height: 100vh;
+		min-height: 100dvh;
+		background-image: url("/images/bg-gradient.webp");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		isolation: isolate;
+		padding-top: 30vh;
+		padding-top: 30dvh;
+
+		& h1 {
+			font-size: var(--fs-xxl);
+			line-height: 1.2em;
+
+			& .title--impact {
+				font-size: 1.55em;
+			}
+			&::first-line {
+				font-size: 1.2em;
+			}
+		}
+		& h2 {
+			font-size: 1.8rem;
+			margin-top: 0.4em;
+		}
+		& .cta-button {
+			margin-top: 0.7em;
+			transition: 0.2s;
+
+			&:is(:hover, :focus-visible) {
+				scale: 1.1;
+				outline: none;
+				text-decoration: none;
+			}
+		}
+		& .hero-img-cont {
+			max-width: 850px;
+			width: clamp(min(515px, 100%), 60%, 850px);
+			position: absolute;
+			top: -10%;
+			bottom: 0;
+			right: 0;
+			z-index: -1;
+			display: flex;
+			align-items: center;
+		}
+	}
+	@media (width < 760px) {
+		.hero-section {
+			padding-top: 15vh;
+			padding-top: 15dvh;
+
+			& .hero-img-cont {
+				position: relative;
+			}
+		}
+	}
+</style>

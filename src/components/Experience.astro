@@ -1,0 +1,32 @@
+---
+import ExperienceCard from "./ExperienceCard.astro";
+import { experiences } from "../data/experience";
+---
+
+<section class="experience" id="experience">
+	<div class="bg-accent section-padding-m">
+		<h2 class="section__title uppercase" tabindex="0">Expérience</h2>
+
+		<p>
+			Bienvenue dans l'archive de mon parcours professionnel, une série
+			d'expériences qui ont sculpté ma trajectoire dans le monde du
+			développement. Bien que courtes, ces quelques expériences professionnelles
+			ont été très enrichissantes et m’ont toutes beaucoup apporté
+			personnellement. Mon rôle a été différent dans les deux entreprises qui
+			m’ont accueillies mais toutes deux ont été très agréables à travailler
+			avec.
+		</p>
+	</div>
+
+	<div class="bg-primary section-padding-s">
+		{
+			experiences.map((experience, index) => (
+				<>
+					<ExperienceCard {...experience} />
+
+					{index < experiences.length - 1 && <div class="separateur" />}
+				</>
+			))
+		}
+	</div>
+</section>

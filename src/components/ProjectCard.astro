@@ -1,0 +1,105 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+	title: string;
+	url: string;
+	subtitle: string;
+	description: string[];
+	images: {
+		src: ImageMetadata;
+		alt: string;
+	}[];
+}
+
+const { title, url, subtitle, description, images } = Astro.props;
+---
+
+<article class="section-padding-s">
+	<h3 class="projets__title">
+		<a target="_blank" href={url}>
+			{title}
+		</a>
+	</h3>
+
+	<h4 class="projets__desc">
+		{subtitle}
+	</h4>
+
+	{description.map((text) => <p>{text}</p>)}
+
+	<div class="projets__screens-cont">
+		{
+			images.map((image) => (
+				<div>
+					<a target="_blank" href={url}>
+						<Image src={image.src} alt={image.alt} loading="lazy" />
+					</a>
+				</div>
+			))
+		}
+	</div>
+
+	<div class="separateur"></div>
+</article>
+
+<style>
+	.projets__title {
+		font-size: var(--fs-ml);
+		font-weight: bold;
+		text-decoration: underline;
+
+		& a:focus-visible {
+			outline: 3px solid var(--color-accent);
+			outline-offset: 0.2em;
+			border-radius: 3px;
+		}
+	}
+	.projets__desc {
+		font-size: var(--fs-m);
+		font-weight: 400;
+		margin-top: 0.85em;
+	}
+	.projets__desc ~ p {
+		font-size: var(--fs-text);
+		line-height: 1.45;
+	}
+	.projets__desc ~ p:nth-child(n + 2) {
+		margin-top: 0.5em;
+	}
+
+	.projets__desc ~ p:first-of-type {
+		margin-top: 1em;
+	}
+	.projets__desc ~ p:last-of-type {
+		margin-bottom: 2.5em;
+	}
+	.projets__screens-cont {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 3rem 5rem;
+	}
+	.projets__screens-cont div {
+		flex: 1 1 480px;
+		display: flex;
+		justify-content: center;
+		outline: 0px solid var(--color-accent);
+		transition: 0.2s ease-in-out;
+		max-width: 600px;
+		margin-inline: auto;
+
+		&:is(:hover, :focus-within) {
+			outline-width: 4px;
+			outline-offset: 6px;
+		}
+		& a:focus-visible {
+			outline: none;
+		}
+
+		& img {
+			vertical-align: middle;
+		}
+	}
+</style>

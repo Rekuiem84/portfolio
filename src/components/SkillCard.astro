@@ -1,0 +1,72 @@
+---
+interface Props {
+	title: string;
+	icon: ImageMetadata | string;
+	iconAlt: string;
+	description: string;
+	listTitle: string;
+	items: string[];
+	accent?: boolean;
+}
+
+const {
+	title,
+	icon,
+	iconAlt,
+	description,
+	listTitle,
+	items,
+	accent = false,
+} = Astro.props;
+
+const iconSrc = typeof icon === "string" ? icon : icon.src;
+---
+
+<div class:list={["skills__cont", accent && "bg-accent"]}>
+	<div class="img-cont">
+		<img src={iconSrc} alt={iconAlt} />
+	</div>
+
+	<h3 class="skills__title">{title}</h3>
+
+	<p>{description}</p>
+
+	<p class="skills__list-title underline bold">{listTitle}</p>
+
+	<ul>
+		{items.map((item) => <li>{item}</li>)}
+	</ul>
+</div>
+
+<style>
+	.skills__cont {
+		padding: 1.4rem;
+		flex: 1 1 250px;
+
+		& .img-cont {
+			width: min(75px, 60%);
+			margin-inline: auto;
+		}
+		.skills__title {
+			font-size: var(--fs-ml);
+			text-transform: capitalize;
+			text-decoration: underline;
+			font-weight: bold;
+		}
+		& p,
+		& li {
+			font-size: var(--fs-text);
+		}
+		& .skills__title + p {
+			margin-top: 0.6em;
+			line-height: 1.45;
+		}
+		& li {
+			margin-top: 0.4em;
+			font-weight: 300;
+		}
+		.skills__list-title {
+			margin-top: 1.3em;
+		}
+	}
+</style>

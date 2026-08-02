@@ -1,0 +1,19 @@
+---
+interface Props {
+	href?: string;
+	icon: string;
+	label: string;
+}
+
+const { href, icon, label } = Astro.props;
+---
+
+<li class="social-cont">
+	<a
+		href={href}
+		class="social"
+		target={href?.startsWith("http") ? "_blank" : undefined}
+		rel={href?.startsWith("http") ? "noreferrer" : undefined}>
+		<i class={icon}></i>{label}
+	</a>
+</li>

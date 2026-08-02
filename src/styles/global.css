@@ -23,8 +23,8 @@ html {
 	color-scheme: light;
 }
 body {
-	font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-		sans-serif;
+	font-family:
+		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 html,
 body {
@@ -39,6 +39,8 @@ body::-webkit-scrollbar {
 }
 img {
 	max-width: 100%;
+	width: 100%;
+	height: auto;
 }
 ul {
 	list-style-type: none;
@@ -161,7 +163,7 @@ section p {
 	scale: 0.9;
 }
 /* Hero */
-.hero-section {
+/* .hero-section {
 	position: relative;
 	min-height: 100vh;
 	min-height: 100dvh;
@@ -218,9 +220,9 @@ section p {
 			position: relative;
 		}
 	}
-}
+} */
 /* À propos */
-.a-propos {
+/* .a-propos {
 	position: relative;
 	isolation: isolate;
 	padding-block: 5.5rem;
@@ -250,9 +252,9 @@ section p {
 		margin-bottom: 1.35em;
 		line-height: 1.4;
 	}
-}
+} */
 /* Skills */
-.mes-skills {
+/* .mes-skills {
 	padding-top: 5.5rem;
 	margin-bottom: 8rem;
 
@@ -325,10 +327,10 @@ section p {
 		margin-inline: auto;
 		flex-direction: column;
 	}
-}
+} */
 
 /* Projets */
-.projets {
+/* .projets {
 	& .bandeau--hb {
 		position: relative;
 		isolation: isolate;
@@ -446,7 +448,7 @@ section p {
 			vertical-align: middle;
 		}
 	}
-}
+} */
 .separateur {
 	width: min(85%, 800px);
 	height: 5px;
@@ -704,13 +706,13 @@ section p {
 		}
 
 		&:first-of-type::before {
-			content: url(images/icon-profil.svg);
+			content: url(/icon-profil.svg);
 		}
 		&:nth-of-type(2)::before {
-			content: url(images/icon-mail.svg);
+			content: url(/icon-mail.svg);
 		}
 		&:nth-of-type(3)::before {
-			content: url(images/icon-bubble.svg);
+			content: url(/icon-bubble.svg);
 			top: 0.7em;
 		}
 	}
@@ -753,7 +755,7 @@ section p {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	// transition: 0.15s 0.05s ease-in-out;
+	transition: 0.15s 0.05s ease-in-out;
 	position: relative;
 
 	& .socials {
@@ -762,7 +764,9 @@ section p {
 		flex-wrap: wrap;
 		list-style: none;
 		z-index: 1;
-		transition: all 0.3s, gap 1s;
+		transition:
+			all 0.3s,
+			gap 1s;
 
 		& .social-cont {
 			padding: 0.75rem;
@@ -778,7 +782,9 @@ section p {
 				border-radius: 0.5em;
 				outline: 2px solid transparent;
 				font-size: var(--fs-text);
-				transition: all 0.2s 0.05s ease-in-out, color 0.05s ease;
+				transition:
+					all 0.2s 0.05s ease-in-out,
+					color 0.05s ease;
 
 				&::selection {
 					background: var(--color-primary);
@@ -851,7 +857,9 @@ section p {
 	width: 100%;
 	background-color: var(--color-primary);
 	border-radius: 50px;
-	transition: 0.5s, background-color 0.25s;
+	transition:
+		0.5s,
+		background-color 0.25s;
 	outline: 2.5px solid var(--color-accent);
 }
 .burger--line::before,
@@ -929,7 +937,9 @@ section p {
 	font-size: calc(3 * var(--fs-xxl));
 	text-transform: uppercase;
 	letter-spacing: 500px;
-	transition: all 0.25s ease-in-out, letter-spacing 0.4s ease-in-out;
+	transition:
+		all 0.25s ease-in-out,
+		letter-spacing 0.4s ease-in-out;
 }
 
 .nav-sec__link:is(:hover, :focus)::after {
