@@ -23,6 +23,7 @@ import carepills2 from "@/assets/projects/carepills-2.webp";
 
 export const projects = [
 	{
+		slug: "aimmo",
 		title: "AIMMO",
 		url: "https://www.ai-immo.fr",
 		subtitle: "SaaS d'analyse d'annonces immobilières",
@@ -42,11 +43,12 @@ export const projects = [
 	},
 
 	{
+		slug: "agencilab",
 		title: "Agencilab",
 		url: "https://www.ai-immo.fr",
-		subtitle: "SaaS d'analyse d'annonces immobilières",
+		subtitle: "Apprendre le Growth Marketing",
 		description: [
-			"Aide à la création de la maquette puis intégration de la landing page avec Framer et React.",
+			"Aide de des centaines d'élèves dans la création, et le développement de leur entreprise avec des nombreux modules et intervenants. J'ai activement aidé au développement du projet, en étant spécialisé en création de workflows automatisés entre des dizaines d'apps.",
 		],
 		images: [
 			{
@@ -57,6 +59,7 @@ export const projects = [
 	},
 
 	{
+		slug: "asgtp",
 		title: "ASGTP",
 		url: "https://www.asgtp.fr",
 		subtitle: "L’expert des travaux publics pour les particuliers",
@@ -74,6 +77,7 @@ export const projects = [
 	},
 
 	{
+		slug: "ccogestion",
 		title: "C.Co.Gestion",
 		url: "https://www.c-co-gestion.fr",
 		subtitle: "Gestion administrative au service des entreprises",
@@ -95,6 +99,7 @@ export const projects = [
 	},
 
 	{
+		slug: "chocolift",
 		title: "ChocoLift",
 		url: "https://rekuiem84.github.io/chocolift/",
 		subtitle: "Barre protéinée à saveur de Kinder Bueno",
@@ -116,6 +121,7 @@ export const projects = [
 	},
 
 	{
+		slug: "loris",
 		title: "Loris Prépa",
 		url: "https://rekuiem84.github.io/loris-prepa/",
 		subtitle: "Préparateur physique pour les professionnels",
@@ -137,6 +143,7 @@ export const projects = [
 	},
 
 	{
+		slug: "pokedex",
 		title: "Pokédex",
 		url: "https://rekuiem84.github.io/pokedex/",
 		subtitle: "Le pokédex avec tous les Pokémon",
@@ -157,6 +164,7 @@ export const projects = [
 	},
 
 	{
+		slug: "carepills",
 		title: "CarePills",
 		url: "https://rekuiem84.github.io/carepills/",
 		subtitle: "Dentifrice en forme de pilule",

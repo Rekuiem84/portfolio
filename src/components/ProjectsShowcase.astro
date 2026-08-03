@@ -1,0 +1,225 @@
+---
+import { Image } from "astro:assets";
+import { projects } from "../data/projects";
+---
+
+<section class="showcase">
+	<ul class="showcase__list" role="tablist" aria-label="Liste des projets">
+		{
+			projects.map((project, i) => (
+				<li>
+					<button
+						type="button"
+						class:list={["showcase__item", i === 0 && "active"]}
+						data-index={i}
+						data-slug={project.slug}
+						role="tab"
+						aria-selected={i === 0}>
+						<span transition:name={`project-title-${project.slug}`}>
+							{project.title}
+						</span>
+					</button>
+				</li>
+			))
+		}
+	</ul>
+
+	<div class="showcase__visual">
+		{
+			projects.map((project, i) => (
+				<a
+					href={`/projets/${project.slug}`}
+					class:list={["showcase__image", i === 0 && "active"]}
+					data-index={i}
+					data-slug={project.slug}
+					data-astro-history="replace"
+					aria-hidden={i !== 0}
+					tabindex={i === 0 ? 0 : -1}>
+					<Image
+						src={project.images[0].src}
+						alt={project.images[0].alt}
+						loading={i === 0 ? "eager" : "lazy"}
+						transition:name={`project-image-${project.slug}`}
+					/>
+				</a>
+			))
+		}
+
+		<div class="showcase__progress">
+			<div class="showcase__progress-bar"></div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.showcase {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 3rem;
+		align-items: center;
+	}
+
+	.showcase__list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.showcase__item {
+		background: none;
+		border: none;
+		text-align: left;
+		font-size: var(--fs-m);
+		font-weight: 400;
+		opacity: 0.5;
+		cursor: pointer;
+		transition: 0.2s ease-in-out;
+		padding: 0.4em 0;
+
+		&.active {
+			opacity: 1;
+			font-weight: 700;
+			color: var(--color-accent);
+		}
+
+		&:hover,
+		&:focus-visible {
+			opacity: 1;
+		}
+	}
+
+	.showcase__visual {
+		position: relative;
+	}
+
+	.showcase__image {
+		display: none;
+		grid-row: 1;
+		grid-column: 1;
+
+		&.active {
+			display: block;
+		}
+
+		& img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+	}
+
+	.showcase__progress {
+		margin-top: 0.6em;
+		height: 3px;
+		width: 100%;
+		background: color-mix(in srgb, currentColor 15%, transparent);
+		overflow: hidden;
+		border-radius: 2px;
+	}
+
+	.showcase__progress-bar {
+		height: 100%;
+		width: 0%;
+		background: var(--color-accent);
+		border-radius: 2px;
+	}
+
+	.showcase__progress-bar.animating {
+		animation: fill-progress 10s linear forwards;
+	}
+
+	@keyframes fill-progress {
+		from {
+			width: 0%;
+		}
+		to {
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.showcase {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
+
+<script>
+	function initShowcase() {
+		const items =
+			document.querySelectorAll<HTMLButtonElement>(".showcase__item");
+		const images =
+			document.querySelectorAll<HTMLAnchorElement>(".showcase__image");
+		const progressBar = document.querySelector<HTMLDivElement>(
+			".showcase__progress-bar",
+		);
+
+		if (!items.length || !images.length || !progressBar) return;
+
+		let current = 0;
+		const total = items.length;
+		let interval: ReturnType<typeof setInterval>;
+
+		function resetProgressBar() {
+			if (!progressBar) return;
+
+			progressBar.classList.remove("animating");
+			void progressBar.offsetWidth;
+			progressBar.classList.add("animating");
+		}
+
+		function setActive(index: number) {
+			items.forEach((item) => {
+				item.classList.remove("active");
+				item.setAttribute("aria-selected", "false");
+			});
+			images.forEach((image) => {
+				image.classList.remove("active");
+				image.setAttribute("aria-hidden", "true");
+				image.setAttribute("tabindex", "-1");
+			});
+
+			items[index].classList.add("active");
+			items[index].setAttribute("aria-selected", "true");
+			images[index].classList.add("active");
+			images[index].setAttribute("aria-hidden", "false");
+			images[index].setAttribute("tabindex", "0");
+
+			resetProgressBar();
+
+			current = index;
+		}
+
+		function startAutoplay() {
+			clearInterval(interval);
+			interval = setInterval(() => {
+				setActive((current + 1) % total);
+			}, 10000);
+		}
+
+		items.forEach((item, i) => {
+			item.addEventListener("click", () => {
+				clearInterval(interval);
+				setActive(i);
+				startAutoplay();
+			});
+		});
+
+		// Reprend le dernier projet consulté, s'il existe
+		const lastSlug = sessionStorage.getItem("lastProjectSlug");
+		let startIndex = 0;
+
+		if (lastSlug) {
+			const foundIndex = Array.from(items).findIndex(
+				(item) => item.dataset.slug === lastSlug,
+			);
+			if (foundIndex !== -1) startIndex = foundIndex;
+			sessionStorage.removeItem("lastProjectSlug");
+		}
+
+		setActive(startIndex);
+		startAutoplay();
+	}
+
+	document.addEventListener("astro:page-load", initShowcase);
+</script>

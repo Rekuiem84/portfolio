@@ -8,7 +8,63 @@ import siteSandrineFoucher from "@/assets/experiences/sf-site.webp";
 
 import logoTcheen from "@/assets/experiences/logo-tcheen.webp";
 
+// À ajouter : place tes fichiers dans src/assets/experiences/ puis décommente
+// import logoKutchs from "@/assets/experiences/logo-kutchs.webp";
+// import siteKutchs from "@/assets/experiences/kutchs-site.webp";
+
 export const experiences = [
+	{
+		title: "Alternance, développeur fullstack — Kutchs",
+		date: "Année 2024/2025",
+
+		icons: [
+			{
+				name: "Design",
+				src: iconBrush,
+				alt: "Icône de pinceau",
+			},
+			{
+				name: "Développement",
+				src: iconCode,
+				alt: "Icône de développement",
+			},
+		],
+
+		layoutClass: "alternance",
+
+		sections: [
+			{
+				title: "Conception",
+				content: [
+					"Au sein de la société Kutchs, j'ai été chargé de créer les maquettes web permettant de définir l'architecture d'une application complexe, avant son développement.",
+				],
+				accent: true,
+			},
+
+			// { image: { src: logoKutchs, alt: "Logo de Kutchs" } },
+
+			{
+				title: "Développement",
+				content: [
+					"J'ai développé plusieurs applications fullstack avec Ruby on Rails 7, puis 8, en intégrant un panel admin complet et en utilisant SCSS et Hotwire JS pour l'interactivité côté front.",
+
+					"J'ai assuré la mise en production et l'intégration continue sur l'ensemble des projets, ainsi que le développement d'une application combinant des outils No Code et Low Code.",
+				],
+				accent: true,
+			},
+
+			{
+				title: "Collaboration",
+				content: [
+					"J'ai collaboré régulièrement avec des profils non-techniques, ce qui m'a permis de développer ma capacité à vulgariser des sujets techniques et à adapter mes explications selon mon interlocuteur.",
+				],
+				accent: true,
+			},
+
+			// { image: { src: siteKutchs, alt: "Application développée chez Kutchs" } },
+		],
+	},
+
 	{
 		title: "Stage avec Sandrine Foucher",
 		date: "Avril - Juin 2023 — 8 semaines",

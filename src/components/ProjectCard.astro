@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 
 interface Props {
+	slug: string;
 	title: string;
 	url: string;
 	subtitle: string;
@@ -12,12 +13,12 @@ interface Props {
 	}[];
 }
 
-const { title, url, subtitle, description, images } = Astro.props;
+const { slug, title, url, subtitle, description, images } = Astro.props;
 ---
 
 <article class="section-padding-s">
 	<h3 class="projets__title">
-		<a target="_blank" href={url}>
+		<a target="_blank" href={url} transition:name={`project-title-${slug}`}>
 			{title}
 		</a>
 	</h3>
@@ -30,10 +31,15 @@ const { title, url, subtitle, description, images } = Astro.props;
 
 	<div class="projets__screens-cont">
 		{
-			images.map((image) => (
+			images.map((image, i) => (
 				<div>
 					<a target="_blank" href={url}>
-						<Image src={image.src} alt={image.alt} loading="lazy" />
+						<Image
+							src={image.src}
+							alt={image.alt}
+							loading="lazy"
+							transition:name={i === 0 ? `project-image-${slug}` : undefined}
+						/>
 					</a>
 				</div>
 			))

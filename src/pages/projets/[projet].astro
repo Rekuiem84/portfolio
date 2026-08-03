@@ -1,0 +1,28 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { projects } from "../../data/projects";
+
+export function getStaticPaths() {
+	return projects.map((project) => ({
+		params: { projet: project.slug },
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout
+	title={`${project.title} - Joshua MORINI`}
+	description={project.subtitle}>
+	<main class="section-padding-l">
+		<a href="/projets" data-astro-history="replace">← Retour aux projets</a>
+
+		<ProjectCard {...project} />
+	</main>
+</Layout>
+
+<script define:vars={{ slug: project.slug }}>
+	sessionStorage.setItem("lastProjectSlug", slug);
+</script>

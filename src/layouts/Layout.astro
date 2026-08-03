@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 
 export interface Props {
@@ -54,6 +55,7 @@ const {
 			property="twitter:url"
 			content="https://rekuiem84.github.io/portfolio/"
 		/>
+		<ClientRouter />
 	</head>
 	<body>
 		<slot />
